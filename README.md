@@ -55,6 +55,8 @@ You can also pass in any other keyword arguments to the plt.plot() function. Her
 
 #### This function returns True if an edge exists from u to v, and False otherwise.
 
+## Motif counting function
+
 `def motif_count_3d(G, motif, rtype = 'list'):`
 
 `G` is the graph over which you want to count the motifs.
@@ -64,6 +66,32 @@ You can also pass in any other keyword arguments to the plt.plot() function. Her
 `rtype` can be `'list'`, which makes the function return a list of all triplets of nodes for which the motif exists. If `rtype` is anything other than `'list'`, the function will return an integer count of how many motifs there are. This does not account for subgraph isomorphisms. Caution: this algorithm is very slow and takes a long time to run.
 
 #### This function returns a list of all triplets of nodes for which the motif exists, or an integer count of how many motifs there are in G (depending on return type specified).
+
+## drawGz
+
+`def drawGz(G,z, colors=None, nsize = 600, flabel = True, orderthresh = 50, orderthreshsize = 100, width = 2, **kwargs):`
+
+`G` is the graph to draw.
+
+`z` is the partition vector of G. For example, if node 0 in G was in category 3, and node 1 was in category 1, and node 2 was in category 5, z = [3, 1, 5]. 
+
+`colors` is an optional array of color values that you want your partitions to be.
+
+`flabel` is a value that determines whether or not the nodes are labeled. Can be True or False.
+
+`orderthresh` is the threshold over which `flabel` = False by default and the node size changes.
+
+`orderthreshsize` is the size that nodes change to once they reach a certain threshold.
+
+`width` is the line width of edges. 
+
+You can also pass in any other keyword arguments to nx.draw_networkx(). 
+
+#### This function outputs a plot and does not return anything.
+
+`def DCSBM(G, reps = 20, groups = 2, maxphase = 30, output = 'all'):`
+
+
 
 
 
