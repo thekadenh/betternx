@@ -9,7 +9,7 @@ This next section is the documentation for the functions in my project. All of t
 
 ## CCDF
 
-def CCDF(G, gType='loglog', fmt = '', xlabel = 'Degree, k', ylabel = 'Pr(K>=k)', title = None, **kwargs):
+'def CCDF(G, gType='loglog', fmt = '', xlabel = 'Degree, k', ylabel = 'Pr(K>=k)', title = None, \*\*kwargs)\:'
 
 G is the graph you give to the CCDF function (some networkx graph object).
 
