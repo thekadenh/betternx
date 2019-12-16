@@ -93,13 +93,90 @@ You can also pass in any other keyword arguments to nx.draw_networkx().
 
 `def DCSBM(G, reps = 20, groups = 2, maxphase = 30, output = 'all'):`
 
+`G` is the graph you want to apply the DC-SBM function to. 
+
+`reps` is the number of total times the main function will run.
+
+`groups` is the number of groups that the DC-SBM function will optimize to. 
+
+`maxphase` is the maximum number of iterations of optimization before forced convergence.
+
+`output` can be `'Graph'` (outputting only the graph), `'L'` (outputting only the L value), or `'all'` (outputting both). Set it to anything else to not output anything. In any case, this function returns the optimal z partition vector. 
+
+#### This function returns the optimal z partition vector derived by the DC-SBM algorithm.
+
 ## Mean Degree
 
 `def mean_degree(G, out = True):`
 
+`G` is the graph you want the mean degree calculated for.
+
+ `out`, if True, computes the mean out degree. If `out` is False, this function computes the mean degree for both outward and inward nodes (it doubles the output). 
+ 
+ #### This function returns the mean degree of the inputted graph. 
+
 ## Plague Simulator
 
-`def Plague(G = None, Gtype = 'erdos', erdosval = 0.15, node_num = 50, mode = 'Game', ethics = 'Good', difficulty = 'Brutal', starttype = 'random', starters = None, numstarters = 4, vaccines = 'on', quarantines = 'on', antivax = 0.1, vaxcost = 100, startermoney = 500, allowance = 200, quarantinecost = 300, beta = 0.6, gamma = 0.3, curechance = 0.3, icost = 50, dcost = 50, ccost = 300, zcost = 400, betainc = 0.02, gammadec = 0.02, campchance = 0.1): `
+`def Plague(G = None, Gtype = 'erdos', erdosval = 0.15, node_num = 50, mode = 'Game', ethics = 'Good', difficulty = 'Brutal', starttype = 'random', starters = None, numstarters = 4, vaccines = 'on', quarantines = 'on', antivax = 0, vaxcost = 100, startermoney = 500, allowance = 200, quarantinecost = 300, beta = 0.6, gamma = 0.3, curechance = 0, icost = 50, dcost = 50, ccost = 300, zcost = 400, betainc = 0.02, gammadec = 0.02, campchance = 0.1): `
+
+`G` is the optional input graph you want to play the game on. If you don't input anything, it will be an Erdos-Renyi random graph.
+
+`Gtype` can only be set to `'erdos'` currently. 
+
+`erdosval` is the value inputted to the Erdos-Renyi random graph generator. 
+
+`node_num` is the number of nodes in the random graph.
+
+`mode` can be `'Game'` or `'Simulation'`. The `'Simulation'` option disables many game features, allowing the player to not have to worry about the gameplay elements and simply observe the network.
+
+`ethics` can be `'Good'` or `'Evil'`. If it's Good, then the objective of the game is to prevent the spread of the plague as much as possible. However if it's Evil, the objective of the game is to spread the plague as far and wide as possible. 
+
+`difficulty` has 5 values, sorted from most easy to most difficult: `'Baby', 'Normal', 'Brutal', 'Mega Brutal', 'Impossible'`. Inputting this creates a preset for many of the input values to this function. 
+
+`starttype` = `'random'`, `'choice'`, or `'high degree'`. If random, then starter nodes are chosen at random. If choice, then you will have to input an array of starters via the starters input. If high degree, then starter nodes are chosen based on the highest degree. 
+
+`starters`: see `starttype`.
+
+`numstarters` = the number of starting (infected) nodes.
+
+`vaccines` = `'on'` or `'off'`. The vaccines game mechanic is disabled if this is off.
+
+`quarantines` = `'on'` or `'off'`. The quarantines game mechanic is disabled if this is off.
+
+`antivax` is the percent chance that a node will turn antivax at the start of the game. Default 0.
+
+`vaxcost` is the cost of a vaccine in the shop.
+
+`startermoney` is the money the player gets at the beginning of the game.
+
+`allowance` is the amount of money the player gets per turn.
+
+`quarantinecost` is the cost of a quarantine in the shop.
+
+`beta` is the percent chance of infection.
+
+`gamma` is the percent chance of death.
+
+`curechance` is the percent chance of being cured.
+
+`icost` is the cost of an increment to beta.
+
+`dcost` is the cost of a decrement to gamma.
+
+`ccost` is the cost of an anti-vaccine marketing campaign.
+
+`zcost` is the cost of getting a new person infected. 
+
+`betainc` is the amount beta is incremented.
+
+`gammadec` is the amount gamma is decremented.
+
+`campchance` is the chance someone will turn anti-vaccine after an anti-vaccine marketing campaign.
+
+
+## Plague Simulator Tutorial:
+
+
 
 
 A huge thank you goes out to Dr. Aaron Clauset for making this project possible, and for providing ideas and some of the code for this project. 
