@@ -174,9 +174,4 @@ You can also pass in any other keyword arguments to nx.draw_networkx().
 `campchance` is the chance someone will turn anti-vaccine after an anti-vaccine marketing campaign.
 
 
-## Plague Simulator Tutorial:
-
-
-
-
 A huge thank you goes out to Dr. Aaron Clauset for making this project possible, and for providing ideas and some of the code for this project. 
